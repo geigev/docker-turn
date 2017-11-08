@@ -1,0 +1,8 @@
+version: "3.2"
+
+services:
+  coturn:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: "host"
