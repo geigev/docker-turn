@@ -10,8 +10,9 @@ RUN addgroup -g 1000 turn \
 
 # For an explanation of what the following command is derived from
 # see https://stackoverflow.com/questions/35766382/coturn-how-to-use-turn-rest-api
-CMD TURN_SECRET=`cat /run/secrets/turn_secret` && turnserver -a -v -n -r ${REALM} \
+CMD turnserver -a -v -n -r ${REALM} \
 	--cert=/run/secrets/fullchain.pem \
 	--pkey=/run/secrets/privkey.pem \
 	--use-auth-secret --static-auth-secret=`cat /run/secrets/turn_secret` --max-bps=3000000 \
-	-f -m 3 --min-port=32355 --max-port=65535 -q 100 -Q 300 --cipher-list=ALL
+	-f -m 3 --min-port=32355 --max-port=65535 -q 100 -Q 300 --cipher-list=ALL \
+	--tls-listening-port 443 --listening-port 443
