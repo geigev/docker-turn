@@ -4,5 +4,14 @@ services:
   coturn:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     network_mode: "host"
+    secrets:
+      - fullchain.pem
+      - privkey.pem
+
+secrets:
+  fullchain.pem:
+    file: ./keys/fullchain.pem
+  privkey.pem:
+    file: ./keys/privkey.pem
