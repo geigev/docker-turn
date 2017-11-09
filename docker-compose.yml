@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     network_mode: "host"
+    environment:
+      - REALM=mytestrealm
     secrets:
       - fullchain.pem
       - privkey.pem
