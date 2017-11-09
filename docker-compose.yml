@@ -9,9 +9,12 @@ services:
     secrets:
       - fullchain.pem
       - privkey.pem
+      - turn_secret
 
 secrets:
   fullchain.pem:
     file: ./keys/fullchain.pem
   privkey.pem:
     file: ./keys/privkey.pem
+  turn_secret:
+    file: ./keys/turn_secret

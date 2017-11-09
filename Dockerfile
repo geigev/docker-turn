@@ -12,5 +12,5 @@ RUN addgroup -g 1000 turn \
 CMD turnserver -a -v -n -r "test" \
 	--cert=/run/secrets/fullchain.pem \
 	--pkey=/run/secrets/privkey.pem \
-	--use-auth-secret --static-auth-secret=bigbob --max-bps=3000000 \
+	--use-auth-secret --static-auth-secret=`cat /run/secrets/turn_secret` --max-bps=3000000 \
 	-f -m 3 --min-port=32355 --max-port=65535 -q 100 -Q 300 --cipher-list=ALL
